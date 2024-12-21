@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Sweet Wheel for XMZ</title>
+        <title>XMZ 的甜蜜转盘</title>
         <link rel="icon" href="./logo.png" type="image/png" />
         <link rel="stylesheet" href="main.css" type="text/css" />
         <script type="text/javascript" src="./Winwheel.min.js"></script>
@@ -8,10 +8,10 @@
     </head>
     <body>
         <div align="center">
-            <h1>Decision Wheel - Make Your Choice!</h1>
-            <p>This is a decision-making wheel. Choose a power setting and press the Spin button. The wheel will stop and show you the chosen option.</p>
+            <h1>决策转盘 - 让它帮你做选择！</h1>
+            <p>这是一个帮你做决定的转盘工具。选择一个转速设置，然后点击“开始转动”按钮。转盘停止后，会显示最终的选项。</p>
             <br />
-            <p>Choose a power setting, then press the Spin button to let the wheel decide for you!</p>
+            <p>选择一个转速设置，然后点击“开始转动”，让转盘为你做决定吧！</p>
             <br />
             <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
@@ -21,79 +21,79 @@
                             <br />
                             <table class="power" cellpadding="10" cellspacing="0">
                                 <tr>
-                                    <th align="center">Power</th>
+                                    <th align="center">选择转速</th>
                                 </tr>
                                 <tr>
-                                    <td width="78" align="center" id="pw3" onClick="powerSelected(3);">High</td>
+                                    <td width="78" align="center" id="pw3" onClick="powerSelected(3);">高</td>
                                 </tr>
                                 <tr>
-                                    <td align="center" id="pw2" onClick="powerSelected(2);">Med</td>
+                                    <td align="center" id="pw2" onClick="powerSelected(2);">中</td>
                                 </tr>
                                 <tr>
-                                    <td align="center" id="pw1" onClick="powerSelected(1);">Low</td>
+                                    <td align="center" id="pw1" onClick="powerSelected(1);">低</td>
                                 </tr>
                             </table>
                             <br />
-                            <img id="spin_button" src="spin_off.png" alt="Spin" onClick="startSpin();" />
+                            <img id="spin_button" src="spin_off.png" alt="转动" onClick="startSpin();" />
                             <br /><br />
-                            &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">Play Again</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reset)
+                            &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">再来一次</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(重置)
                         </div>
                     </td>
                     <td width="438" height="582" class="the_wheel" align="center" valign="center">
                         <canvas id="canvas" width="434" height="434">
-                            <p style="color: white" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                            <p style="color: white" align="center">抱歉，您的浏览器不支持 Canvas，请尝试其他浏览器。</p>
                         </canvas>
                     </td>
                 </tr>
             </table>
         </div>
         <script>
-            // Create new wheel object specifying the parameters at creation time.
+            // 创建转盘对象，并在创建时指定参数。
             let theWheel = new Winwheel({
-                'numSegments'  : 12,     // Specify number of segments to 12.
-                'outerRadius'  : 212,    // Set outer radius so wheel fits inside the background.
-                'textFontSize' : 28,     // Set font size as desired.
-                'segments'     :        // Define segments including colour and text.
+                'numSegments'  : 12,     // 指定转盘分为12个区域。
+                'outerRadius'  : 212,    // 设置外半径，让转盘适应背景大小。
+                'textFontSize' : 28,     // 设置字体大小。
+                'segments'     :        // 定义每个区域的颜色和文字。
                 [
-                    {'fillStyle' : '#eae56f', 'text' : 'Option 1'},
-                    {'fillStyle' : '#89f26e', 'text' : 'Option 2'},
-                    {'fillStyle' : '#7de6ef', 'text' : 'Option 3'},
-                    {'fillStyle' : '#e7706f', 'text' : 'Option 4'},
-                    {'fillStyle' : '#eae56f', 'text' : 'Option 5'},
-                    {'fillStyle' : '#89f26e', 'text' : 'Option 6'},
-                    {'fillStyle' : '#7de6ef', 'text' : 'Option 7'},
-                    {'fillStyle' : '#e7706f', 'text' : 'Option 8'},
-                    {'fillStyle' : '#eae56f', 'text' : 'Option 9'},
-                    {'fillStyle' : '#89f26e', 'text' : 'Option 10'},
-                    {'fillStyle' : '#7de6ef', 'text' : 'Option 11'},
-                    {'fillStyle' : '#e7706f', 'text' : 'Option 12'}
+                    {'fillStyle' : '#eae56f', 'text' : '选项 1'},
+                    {'fillStyle' : '#89f26e', 'text' : '选项 2'},
+                    {'fillStyle' : '#7de6ef', 'text' : '选项 3'},
+                    {'fillStyle' : '#e7706f', 'text' : '选项 4'},
+                    {'fillStyle' : '#eae56f', 'text' : '选项 5'},
+                    {'fillStyle' : '#89f26e', 'text' : '选项 6'},
+                    {'fillStyle' : '#7de6ef', 'text' : '选项 7'},
+                    {'fillStyle' : '#e7706f', 'text' : '选项 8'},
+                    {'fillStyle' : '#eae56f', 'text' : '选项 9'},
+                    {'fillStyle' : '#89f26e', 'text' : '选项 10'},
+                    {'fillStyle' : '#7de6ef', 'text' : '选项 11'},
+                    {'fillStyle' : '#e7706f', 'text' : '选项 12'}
                 ],
-                'animation' :           // Specify the animation to use.
+                'animation' :           // 指定动画类型。
                 {
                     'type'     : 'spinToStop',
-                    'duration' : 5,     // Duration in seconds.
-                    'spins'    : 8,     // Number of complete spins.
+                    'duration' : 5,     // 动画持续时间，单位为秒。
+                    'spins'    : 8,     // 转盘旋转的圈数。
                     'callbackFinished' : alertDecision
                 }
             });
 
-            // Vars used by the code in this page to do power controls.
+            // 定义变量，用于控制转盘转速和状态。
             let wheelPower    = 0;
             let wheelSpinning = false;
 
             // -------------------------------------------------------
-            // Function to handle the onClick on the power buttons.
+            // 处理转速按钮点击的函数。
             // -------------------------------------------------------
             function powerSelected(powerLevel)
             {
-                // Ensure that power can't be changed while wheel is spinning.
+                // 确保转盘正在旋转时不能改变转速。
                 if (wheelSpinning == false) {
-                    // Reset all to grey incase this is not the first time the user has selected the power.
+                    // 将所有按钮重置为灰色。
                     document.getElementById('pw1').className = "";
                     document.getElementById('pw2').className = "";
                     document.getElementById('pw3').className = "";
 
-                    // Now light up all cells below-and-including the one selected by changing the class.
+                    // 根据选择的转速设置对应按钮的颜色。
                     if (powerLevel >= 1) {
                         document.getElementById('pw1').className = "pw1";
                     }
@@ -106,24 +106,23 @@
                         document.getElementById('pw3').className = "pw3";
                     }
 
-                    // Set wheelPower var used when spin button is clicked.
+                    // 设置转速变量。
                     wheelPower = powerLevel;
 
-                    // Light up the spin button by changing it's source image and adding a clickable class to it.
+                    // 激活“开始转动”按钮。
                     document.getElementById('spin_button').src = "spin_on.png";
                     document.getElementById('spin_button').className = "clickable";
                 }
             }
 
             // -------------------------------------------------------
-            // Click handler for spin button.
+            // 点击“开始转动”按钮的处理函数。
             // -------------------------------------------------------
             function startSpin()
             {
-                // Ensure that spinning can't be clicked again while already running.
+                // 确保在转盘旋转时不能再次点击“开始转动”按钮。
                 if (wheelSpinning == false) {
-                    // Based on the power level selected adjust the number of spins for the wheel, the more times is has
-                    // to rotate with the duration of the animation the quicker the wheel spins.
+                    // 根据转速调整转盘的旋转圈数。
                     if (wheelPower == 1) {
                         theWheel.animation.spins = 3;
                     } else if (wheelPower == 2) {
@@ -132,43 +131,42 @@
                         theWheel.animation.spins = 15;
                     }
 
-                    // Disable the spin button so can't click again while wheel is spinning.
+                    // 禁用“开始转动”按钮。
                     document.getElementById('spin_button').src       = "spin_off.png";
                     document.getElementById('spin_button').className = "";
 
-                    // Begin the spin animation by calling startAnimation on the wheel object.
+                    // 开始旋转动画。
                     theWheel.startAnimation();
 
-                    // Set to true so that power can't be changed and spin button re-enabled during
-                    // the current animation. The user will have to reset before spinning again.
+                    // 设置状态为正在旋转。
                     wheelSpinning = true;
                 }
             }
 
             // -------------------------------------------------------
-            // Function for reset button.
+            // 点击“重置”按钮的处理函数。
             // -------------------------------------------------------
             function resetWheel()
             {
-                theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
-                theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
-                theWheel.draw();                // Call draw to render changes to the wheel.
+                theWheel.stopAnimation(false);  // 停止动画，但不触发回调。
+                theWheel.rotationAngle = 0;     // 重置转盘角度。
+                theWheel.draw();                // 重绘转盘。
 
-                document.getElementById('pw1').className = "";  // Remove all colours from the power level indicators.
+                // 重置转速按钮的样式。
+                document.getElementById('pw1').className = "";  
                 document.getElementById('pw2').className = "";
                 document.getElementById('pw3').className = "";
 
-                wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+                // 设置状态为未旋转。
+                wheelSpinning = false;
             }
 
             // -------------------------------------------------------
-            // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters
-            // note the indicated segment is passed in as a parmeter as 99% of the time you will want to know this to inform the user of their option.
+            // 动画结束后调用的回调函数，显示选中结果。
             // -------------------------------------------------------
             function alertDecision(indicatedSegment)
             {
-                // Basic alert of the segment text. You would probably want to do something more interesting with this information.
-                alert("The wheel chose: " + indicatedSegment.text);
+                alert("转盘选择了：" + indicatedSegment.text);
             }
         </script>
     </body>
