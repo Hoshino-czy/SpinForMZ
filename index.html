@@ -9,9 +9,9 @@
     <body>
         <div align="center">
             <h1>决策转盘 - 让它帮你做选择！</h1>
-            <p>这是一个帮你做决定的转盘工具。选择一个转速设置，然后点击“开始转动”按钮。转盘停止后，会显示最终的选项。</p>
+            <p>这是一个帮你做决定的转盘工具。选择一个转速设置，然后点击“SPIN”按钮。转盘停止后，会显示最终的选项。</p>
             <br />
-            <p>选择一个转速设置，然后点击“开始转动”，让转盘为你做决定吧！</p>
+            <p>选择一个转速设置，然后点击“SPIN”，让转盘为你做决定吧！</p>
             <br />
             <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
@@ -109,18 +109,18 @@
                     // 设置转速变量。
                     wheelPower = powerLevel;
 
-                    // 激活“开始转动”按钮。
+                    // 激活“SPIN”按钮。
                     document.getElementById('spin_button').src = "spin_on.png";
                     document.getElementById('spin_button').className = "clickable";
                 }
             }
 
             // -------------------------------------------------------
-            // 点击“开始转动”按钮的处理函数。
+            // 点击“SPIN”按钮的处理函数。
             // -------------------------------------------------------
             function startSpin()
             {
-                // 确保在转盘旋转时不能再次点击“开始转动”按钮。
+                // 确保在转盘旋转时不能再次点击“SPIN”按钮。
                 if (wheelSpinning == false) {
                     // 根据转速调整转盘的旋转圈数。
                     if (wheelPower == 1) {
@@ -131,7 +131,7 @@
                         theWheel.animation.spins = 15;
                     }
 
-                    // 禁用“开始转动”按钮。
+                    // 禁用“SPIN”按钮。
                     document.getElementById('spin_button').src       = "spin_off.png";
                     document.getElementById('spin_button').className = "";
 
